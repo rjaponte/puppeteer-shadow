@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[11],{230:function(n,e,t){"use strict";t.r(e),t.d(e,"init",function(){return a});var o=t(182),i=t(88);function a(n){new o.a(n).setRoutes([{path:"/",redirect:i.a},{path:i.a,component:"employee-list",action:()=>{Promise.all([t.e(0),t.e(13),t.e(5)]).then(t.bind(null,191))}},{path:i.b,component:"employee-new",action:()=>{Promise.all([t.e(0),t.e(15),t.e(9)]).then(t.bind(null,192))}},{path:"(.*)+",component:"app-404",action:()=>{t.e(3).then(t.bind(null,198))}}])}}}]);
+//# sourceMappingURL=router.es5.3aafe7d2.js.map

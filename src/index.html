@@ -1,0 +1,91 @@
+<!--
+@license
+Copyright (c) 2018 Vaadin Ltd.
+This program is available under Apache License Version 2.0, available at https://vaadin.com/license/
+-->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+    <meta name="description" content="Polymer 3 Webpack app">
+
+    <title>Polymer 3 Webpack app</title>
+
+    <base href="/">
+
+    <link rel="icon" href="favicon.ico">
+
+    <!-- See https://goo.gl/OOhYW5 -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- See https://goo.gl/qRE0vM -->
+    <meta name="theme-color" content="#1576f3">
+
+    <!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Polymer 3 Webpack App">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Polymer 3 Webpack App">
+
+    <!-- Homescreen icons -->
+    <link rel="apple-touch-icon" href="assets/images/icon-48x48.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="96x96" href="assets/images/icon-96x96.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="assets/images/icon-192x192.png">
+
+    <!-- Tile icon for Windows 8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="assets/images/icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#1576f3">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <script>
+      // Load and register pre-caching Service Worker
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('sw.js');
+        });
+      }
+    </script>
+
+    <!-- Add any global styles for body, document, etc. -->
+    <style>
+      html {
+        background-color: #f5f5f5;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+      }
+
+      /* Add styles to render app header while loading resources */
+      starter-app[unresolved] {
+        display: block;
+        color: #fff;
+        background: hsl(214, 90%, 52%);
+        padding: 16px 16px 16px 76px;
+        font-size: 22px;
+        line-height: 1.625;
+        font-weight: 400;
+        font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        -webkit-font-smoothing: antialiased;
+      }
+    </style>
+  <script nomodule type="application/javascript" src="data:application/javascript;base64,LyogZXNsaW50LWVudiBicm93c2VyICovCi8qKgogKiBub21vZHVsZSBmaXggZm9yIFNhZmFyaSAxMC4xCiAqIGZyb20gaHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vc2FtdGhvci82NGIxMTRlNGE0ZjUzOTkxNWE5NWI5MWZmZDM0MGFjYwogKi8KKGZ1bmN0aW9uKCkgewogIGNvbnN0IGNoZWNrID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnc2NyaXB0JykKICBpZiAoJ29uYmVmb3JlbG9hZCcgaW4gY2hlY2spIHsKICAgIGxldCBzdXBwb3J0ID0gZmFsc2UKICAgIGRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoJ2JlZm9yZWxvYWQnLCBmdW5jdGlvbihlKSB7CiAgICAgIGlmIChlLnRhcmdldCA9PT0gY2hlY2spIHsKICAgICAgICBzdXBwb3J0ID0gdHJ1ZQogICAgICB9IGVsc2UgaWYgKCFlLnRhcmdldC5oYXNBdHRyaWJ1dGUoJ25vbW9kdWxlJykgfHwgIXN1cHBvcnQpIHsKICAgICAgICByZXR1cm4KICAgICAgfQogICAgICBlLnByZXZlbnREZWZhdWx0KCkKICAgIH0sIHRydWUpCgogICAgY2hlY2sudHlwZSA9ICdtb2R1bGUnCiAgICBjaGVjay5zcmMgPSAnLicKICAgIGRvY3VtZW50LmhlYWQuYXBwZW5kQ2hpbGQoY2hlY2spCiAgICBjaGVjay5yZW1vdmUoKQogIH0KfSgpKQo="></script><script nomodule type="application/javascript" src="data:application/javascript;base64,LyogZXNsaW50LWVudiBicm93c2VyICovCi8qKgogKiBub21vZHVsZSBmaXggZm9yIFNhZmFyaSAxMC4xCiAqIGZyb20gaHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vc2FtdGhvci82NGIxMTRlNGE0ZjUzOTkxNWE5NWI5MWZmZDM0MGFjYwogKi8KKGZ1bmN0aW9uKCkgewogIGNvbnN0IGNoZWNrID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnc2NyaXB0JykKICBpZiAoJ29uYmVmb3JlbG9hZCcgaW4gY2hlY2spIHsKICAgIGxldCBzdXBwb3J0ID0gZmFsc2UKICAgIGRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoJ2JlZm9yZWxvYWQnLCBmdW5jdGlvbihlKSB7CiAgICAgIGlmIChlLnRhcmdldCA9PT0gY2hlY2spIHsKICAgICAgICBzdXBwb3J0ID0gdHJ1ZQogICAgICB9IGVsc2UgaWYgKCFlLnRhcmdldC5oYXNBdHRyaWJ1dGUoJ25vbW9kdWxlJykgfHwgIXN1cHBvcnQpIHsKICAgICAgICByZXR1cm4KICAgICAgfQogICAgICBlLnByZXZlbnREZWZhdWx0KCkKICAgIH0sIHRydWUpCgogICAgY2hlY2sudHlwZSA9ICdtb2R1bGUnCiAgICBjaGVjay5zcmMgPSAnLicKICAgIGRvY3VtZW50LmhlYWQuYXBwZW5kQ2hpbGQoY2hlY2spCiAgICBjaGVjay5yZW1vdmUoKQogIH0KfSgpKQo="></script><script nomodule type="application/javascript" src="data:application/javascript;base64,LyogZXNsaW50LWVudiBicm93c2VyICovCi8qKgogKiBub21vZHVsZSBmaXggZm9yIFNhZmFyaSAxMC4xCiAqIGZyb20gaHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vc2FtdGhvci82NGIxMTRlNGE0ZjUzOTkxNWE5NWI5MWZmZDM0MGFjYwogKi8KKGZ1bmN0aW9uKCkgewogIGNvbnN0IGNoZWNrID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnc2NyaXB0JykKICBpZiAoJ29uYmVmb3JlbG9hZCcgaW4gY2hlY2spIHsKICAgIGxldCBzdXBwb3J0ID0gZmFsc2UKICAgIGRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoJ2JlZm9yZWxvYWQnLCBmdW5jdGlvbihlKSB7CiAgICAgIGlmIChlLnRhcmdldCA9PT0gY2hlY2spIHsKICAgICAgICBzdXBwb3J0ID0gdHJ1ZQogICAgICB9IGVsc2UgaWYgKCFlLnRhcmdldC5oYXNBdHRyaWJ1dGUoJ25vbW9kdWxlJykgfHwgIXN1cHBvcnQpIHsKICAgICAgICByZXR1cm4KICAgICAgfQogICAgICBlLnByZXZlbnREZWZhdWx0KCkKICAgIH0sIHRydWUpCgogICAgY2hlY2sudHlwZSA9ICdtb2R1bGUnCiAgICBjaGVjay5zcmMgPSAnLicKICAgIGRvY3VtZW50LmhlYWQuYXBwZW5kQ2hpbGQoY2hlY2spCiAgICBjaGVjay5yZW1vdmUoKQogIH0KfSgpKQo="></script><script nomodule type="application/javascript" src="data:application/javascript;base64,LyogZXNsaW50LWVudiBicm93c2VyICovCi8qKgogKiBub21vZHVsZSBmaXggZm9yIFNhZmFyaSAxMC4xCiAqIGZyb20gaHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vc2FtdGhvci82NGIxMTRlNGE0ZjUzOTkxNWE5NWI5MWZmZDM0MGFjYwogKi8KKGZ1bmN0aW9uKCkgewogIGNvbnN0IGNoZWNrID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnc2NyaXB0JykKICBpZiAoJ29uYmVmb3JlbG9hZCcgaW4gY2hlY2spIHsKICAgIGxldCBzdXBwb3J0ID0gZmFsc2UKICAgIGRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoJ2JlZm9yZWxvYWQnLCBmdW5jdGlvbihlKSB7CiAgICAgIGlmIChlLnRhcmdldCA9PT0gY2hlY2spIHsKICAgICAgICBzdXBwb3J0ID0gdHJ1ZQogICAgICB9IGVsc2UgaWYgKCFlLnRhcmdldC5oYXNBdHRyaWJ1dGUoJ25vbW9kdWxlJykgfHwgIXN1cHBvcnQpIHsKICAgICAgICByZXR1cm4KICAgICAgfQogICAgICBlLnByZXZlbnREZWZhdWx0KCkKICAgIH0sIHRydWUpCgogICAgY2hlY2sudHlwZSA9ICdtb2R1bGUnCiAgICBjaGVjay5zcmMgPSAnLicKICAgIGRvY3VtZW50LmhlYWQuYXBwZW5kQ2hpbGQoY2hlY2spCiAgICBjaGVjay5yZW1vdmUoKQogIH0KfSgpKQo="></script><script nomodule type="application/javascript" src="data:application/javascript;base64,LyogZXNsaW50LWVudiBicm93c2VyICovCi8qKgogKiBub21vZHVsZSBmaXggZm9yIFNhZmFyaSAxMC4xCiAqIGZyb20gaHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vc2FtdGhvci82NGIxMTRlNGE0ZjUzOTkxNWE5NWI5MWZmZDM0MGFjYwogKi8KKGZ1bmN0aW9uKCkgewogIGNvbnN0IGNoZWNrID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnc2NyaXB0JykKICBpZiAoJ29uYmVmb3JlbG9hZCcgaW4gY2hlY2spIHsKICAgIGxldCBzdXBwb3J0ID0gZmFsc2UKICAgIGRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoJ2JlZm9yZWxvYWQnLCBmdW5jdGlvbihlKSB7CiAgICAgIGlmIChlLnRhcmdldCA9PT0gY2hlY2spIHsKICAgICAgICBzdXBwb3J0ID0gdHJ1ZQogICAgICB9IGVsc2UgaWYgKCFlLnRhcmdldC5oYXNBdHRyaWJ1dGUoJ25vbW9kdWxlJykgfHwgIXN1cHBvcnQpIHsKICAgICAgICByZXR1cm4KICAgICAgfQogICAgICBlLnByZXZlbnREZWZhdWx0KCkKICAgIH0sIHRydWUpCgogICAgY2hlY2sudHlwZSA9ICdtb2R1bGUnCiAgICBjaGVjay5zcmMgPSAnLicKICAgIGRvY3VtZW50LmhlYWQuYXBwZW5kQ2hpbGQoY2hlY2spCiAgICBjaGVjay5yZW1vdmUoKQogIH0KfSgpKQo="></script><script nomodule type="application/javascript" src="data:application/javascript;base64,LyogZXNsaW50LWVudiBicm93c2VyICovCi8qKgogKiBub21vZHVsZSBmaXggZm9yIFNhZmFyaSAxMC4xCiAqIGZyb20gaHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vc2FtdGhvci82NGIxMTRlNGE0ZjUzOTkxNWE5NWI5MWZmZDM0MGFjYwogKi8KKGZ1bmN0aW9uKCkgewogIGNvbnN0IGNoZWNrID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnc2NyaXB0JykKICBpZiAoJ29uYmVmb3JlbG9hZCcgaW4gY2hlY2spIHsKICAgIGxldCBzdXBwb3J0ID0gZmFsc2UKICAgIGRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoJ2JlZm9yZWxvYWQnLCBmdW5jdGlvbihlKSB7CiAgICAgIGlmIChlLnRhcmdldCA9PT0gY2hlY2spIHsKICAgICAgICBzdXBwb3J0ID0gdHJ1ZQogICAgICB9IGVsc2UgaWYgKCFlLnRhcmdldC5oYXNBdHRyaWJ1dGUoJ25vbW9kdWxlJykgfHwgIXN1cHBvcnQpIHsKICAgICAgICByZXR1cm4KICAgICAgfQogICAgICBlLnByZXZlbnREZWZhdWx0KCkKICAgIH0sIHRydWUpCgogICAgY2hlY2sudHlwZSA9ICdtb2R1bGUnCiAgICBjaGVjay5zcmMgPSAnLicKICAgIGRvY3VtZW50LmhlYWQuYXBwZW5kQ2hpbGQoY2hlY2spCiAgICBjaGVjay5yZW1vdmUoKQogIH0KfSgpKQo="></script><script nomodule type="application/javascript" src="data:application/javascript;base64,LyogZXNsaW50LWVudiBicm93c2VyICovCi8qKgogKiBub21vZHVsZSBmaXggZm9yIFNhZmFyaSAxMC4xCiAqIGZyb20gaHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vc2FtdGhvci82NGIxMTRlNGE0ZjUzOTkxNWE5NWI5MWZmZDM0MGFjYwogKi8KKGZ1bmN0aW9uKCkgewogIGNvbnN0IGNoZWNrID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnc2NyaXB0JykKICBpZiAoJ29uYmVmb3JlbG9hZCcgaW4gY2hlY2spIHsKICAgIGxldCBzdXBwb3J0ID0gZmFsc2UKICAgIGRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoJ2JlZm9yZWxvYWQnLCBmdW5jdGlvbihlKSB7CiAgICAgIGlmIChlLnRhcmdldCA9PT0gY2hlY2spIHsKICAgICAgICBzdXBwb3J0ID0gdHJ1ZQogICAgICB9IGVsc2UgaWYgKCFlLnRhcmdldC5oYXNBdHRyaWJ1dGUoJ25vbW9kdWxlJykgfHwgIXN1cHBvcnQpIHsKICAgICAgICByZXR1cm4KICAgICAgfQogICAgICBlLnByZXZlbnREZWZhdWx0KCkKICAgIH0sIHRydWUpCgogICAgY2hlY2sudHlwZSA9ICdtb2R1bGUnCiAgICBjaGVjay5zcmMgPSAnLicKICAgIGRvY3VtZW50LmhlYWQuYXBwZW5kQ2hpbGQoY2hlY2spCiAgICBjaGVjay5yZW1vdmUoKQogIH0KfSgpKQo="></script></head>
+  <body>
+    <starter-app unresolved>
+      Vaadin App
+    </starter-app>
+    <!-- Load the external helpers to run the code transpiled to ES5 -->
+    <script nomodule src="./vendor/babel-helpers.min.js"></script>
+    <script nomodule src="./vendor/regenerator-runtime.min.js"></script>
+    <!-- Load webcomponents-loader.js to check and load any polyfills your browser needs -->
+    <script src="./vendor/webcomponents-loader.js"></script>
+  <script type="module" src="main.e244ebe6.js"></script><script type="text/javascript" src="main.es5.c3dec4ce.js" nomodule></script><script type="module" src="main.e244ebe6.js"></script><script type="text/javascript" src="main.es5.c3dec4ce.js" nomodule></script><script type="module" src="main.91db812b.js"></script><script type="text/javascript" src="main.es5.d206828e.js" nomodule></script><script type="module" src="main.91db812b.js"></script><script type="text/javascript" src="main.es5.d206828e.js" nomodule></script><script type="module" src="main.a2d3d52b.js"></script><script type="text/javascript" src="main.es5.6616d039.js" nomodule></script><script type="module" src="main.a2d3d52b.js"></script><script type="text/javascript" src="main.es5.6616d039.js" nomodule></script><script type="module" src="main.a2d3d52b.js"></script><script type="text/javascript" src="main.es5.6616d039.js" nomodule></script></body>
+</html>
